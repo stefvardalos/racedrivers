@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "devstart": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "postinstall": "ng build --aot --prod",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -23,11 +25,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "core-js": "^2.5.4",
+    "express": "^4.16.2",
     "material-colors": "^1.2.6",
     "ngx-toastr": "^10.1.0",
     "rxjs": "~6.3.3",
     "simplegrid": "^1.0.2",
     "tslib": "^1.9.0",
+    "typescript": "~3.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -50,5 +54,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
+  },
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
   }
 }
