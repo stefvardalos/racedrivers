@@ -51,8 +51,11 @@
 
     <div class="col-8 standingpanel" >
 
-      <div  *ngIf="(availableSeasons | async) as availSeasons; else loading">
-        <select
+      <div
+        *ngIf="(availableSeasons | async) as availSeasons; else loading"
+        style="padding: 2%;"
+      >
+        <select class="seasonSelector"
           (ngModelChange)="fetchSeasonResults($event)"
           [(ngModel)]="selectedSeason"
         >

@@ -3,20 +3,29 @@
 
     <div class="col-12 topnav">
 
-      <select
-        (ngModelChange)="fetchDrivers($event)"
-        [(ngModel)]="selectedSeason"
+      <div
+        *ngIf="(seasons | async) as availSeasons; else loading"
+        style="padding: 2%;"
       >
-        <option
-          *ngFor="let season of (seasons | async)"
-          [value]="season.season">{{season.season}}</option>
-      </select>
+        <select class="seasonSelector"
+                (ngModelChange)="fetchDrivers($event)"
+                [(ngModel)]="selectedSeason"
+        >
+          <option
+            *ngFor="let season of availSeasons "
+            [value]="season.season">{{season.season}}</option>
+        </select>
+      </div>
 
-      <input
-        type="text"
-        placeholder="Search.."
-        [(ngModel)]="driverNameSearch"
-      >
+      <div style="padding: 2%;">
+        <input
+          type="text"
+          placeholder="Search.."
+          [(ngModel)]="driverNameSearch"
+        >
+      </div>
+
+
     </div>
     <div class="col-12">
 
