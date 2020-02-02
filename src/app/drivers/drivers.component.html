@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div class="container driverspage">
+  <div class="row standingpanel">
 
     <div class="col-12 topnav">
 
@@ -39,6 +39,7 @@
       <div  *ngIf="driversData | async as drivers; else loading">
 
         <app-tableview
+          [tableTitle]="selectedSeason + ' - Drivers Championship Standings'"
           [columns]="driversColumns"
           [rowData]="drivers | driverName:driverNameSearch"
           (rowClick)="selectDriver($event)"

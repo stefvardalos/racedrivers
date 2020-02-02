@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DriversService} from './drivers.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import * as faicons from '@fortawesome/free-solid-svg-icons';
+import {HelperService} from "../common/helper.service";
 
 @Component({
   selector: 'app-drivers',
@@ -28,13 +29,23 @@ export class DriversComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private driversService: DriversService,
+    private helperService: HelperService,
   ) {
     this.icons = faicons;
   }
 
   ngOnInit() {
-    this.fetchDrivers();
+
+    this.route.queryParams
+      .subscribe(params => {
+        this.fetchDrivers(params.season);
+        if (params && params.hasOwnProperty('season')) {
+          this.selectedSeason = params.season;
+        }
+      });
+
     this.driversService.fetchAvailableSeasons();
 
     this.driversData = this.driversService.drivers;
@@ -47,7 +58,11 @@ export class DriversComponent implements OnInit {
   }
 
   selectDriver(driverData: any) {
-    this.router.navigate(['driver', driverData.Driver.driverId ], { queryParams : {season: this.selectedSeason } });
+    if (this.selectedSeason === '2020') {
+      this.helperService.shotNotification('This year hasnt started yet!' , 1);
+    } else {
+      this.router.navigate(['driver', driverData.Driver.driverId ], { queryParams : {season: this.selectedSeason } });
+    }
   }
 
 }

@@ -59,7 +59,7 @@ export class DriversService {
             this._drivers.next( Object.assign( {} , this.dataStore).drivers[ data.MRData.StandingsTable.StandingsLists[0].season ] );
           },
           error => {
-            this.helperService._errors.next(error.error);
+            this.helperService._errors.next(error.message);
           });
 
     }
@@ -75,7 +75,7 @@ export class DriversService {
         this._seasons.next( Object.assign( {} , this.dataStore).seasons );
         },
         error => {
-          this.helperService._errors.next(error.error);
+          this.helperService._errors.next(error.message);
         });
   }
 }

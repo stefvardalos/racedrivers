@@ -12,6 +12,8 @@ import {FormsModule} from '@angular/forms';
 import { SortTablePipe } from './common/sort-table.pipe';
 import { TableviewComponent } from './common/tableview/tableview.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

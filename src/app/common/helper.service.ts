@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,16 @@ export class HelperService {
   public readonly errors: Observable<any>;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private toastr: ToastrService
   ) {
 
     this._errors = new Subject<any>();
     this.errors = this._errors.asObservable();
+
+    this.errors.subscribe((err) => {
+      this.shotNotification(err);
+    });
   }
 
 
@@ -69,6 +75,14 @@ export class HelperService {
       return 'tr';
     } else {
       return flag.substring(0, 2);
+    }
+  }
+
+  shotNotification(alertmsg: string , level = 0) {
+    if (level === 0) {
+      this.toastr.error(alertmsg , 'Error!');
+    } else {
+      this.toastr.info(alertmsg , 'Info!');
     }
   }
 

@@ -42,7 +42,12 @@ export class DriverComponent implements OnInit {
     this.driversData = combineLatest( this.driverService.driver , this.driverService.results )
       .pipe(
         map( (data: any[]) => {
-          data[0].team = data[1][data[1].length - 1].constructorName;
+          if ( data[1][data[1].length - 1] &&
+            data[1][data[1].length - 1].hasOwnProperty('constructorName') ) {
+            data[0].team = data[1][data[1].length - 1].constructorName;
+          } else {
+            data[0].team  = 'No team yet';
+          }
           return {
             driver : data[0] ,
             results : data[1]

@@ -13,6 +13,8 @@ export class TableviewComponent implements OnInit {
 
   @Input() rowData: any[];
 
+  @Input() tableTitle: string;
+
   @Output() rowClick: EventEmitter<any>;
 
   public tableSort = {

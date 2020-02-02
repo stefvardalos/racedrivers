@@ -29,7 +29,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/material-colors/dist/colors.scss",
-              "node_modules/simplegrid/simple-grid.scss"
+              "node_modules/simplegrid/simple-grid.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -88,7 +89,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/material-colors/dist/colors.scss",
-              "node_modules/simplegrid/simple-grid.scss"
+              "node_modules/simplegrid/simple-grid.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
             "assets": [

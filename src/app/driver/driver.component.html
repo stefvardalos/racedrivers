@@ -73,6 +73,7 @@
       <div  *ngIf="(driversData | async) as data; else loading">
 
         <app-tableview
+          [tableTitle]="data.driver.fullName + ' - ' + selectedSeason + ' -  Championship Standings'"
           [columns]="driverColumns"
           [rowData]="data.results "
         >
