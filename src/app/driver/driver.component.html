@@ -1,4 +1,3 @@
-<!--<div class="container">-->
   <div class="row" style="display:flex">
 
     <div class="col-4 driverpanel" >
@@ -55,7 +54,14 @@
         *ngIf="(availableSeasons | async) as availSeasons; else loading"
         style="padding: 2%;"
       >
-        <select class="seasonSelector"
+        <span style="float: left;width: 20%;">
+          <fa-icon
+            (click)="navBack()"
+            style="font-size: x-large;"
+            [icon]="icons.faArrowCircleLeft">
+          </fa-icon>
+        </span>
+        <select class="seasonSelector" style="width:80%;"
           (ngModelChange)="fetchSeasonResults($event)"
           [(ngModel)]="selectedSeason"
         >
@@ -80,4 +86,3 @@
     </div>
 
   </div>
-<!--</div>-->

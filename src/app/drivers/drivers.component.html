@@ -20,9 +20,16 @@
       <div style="padding: 2%;">
         <input
           type="text"
-          placeholder="Search.."
+          placeholder="Filter on drivers name"
           [(ngModel)]="driverNameSearch"
         >
+        <span style="padding-left: 2%;" *ngIf="driverNameSearch && driverNameSearch.length > 0">
+          <fa-icon
+            (click)="driverNameSearch = ''"
+            style="font-size: x-large;"
+            [icon]="icons.faTimes">
+          </fa-icon>
+        </span>
       </div>
 
 

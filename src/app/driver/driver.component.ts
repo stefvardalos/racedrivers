@@ -75,4 +75,8 @@ export class DriverComponent implements OnInit {
     this.driverService.fetchDriverResults( this.driverID, season);
   }
 
+  navBack() {
+    this.router.navigate(['' ], { queryParams : {season: this.selectedSeason } });
+  }
+
 }

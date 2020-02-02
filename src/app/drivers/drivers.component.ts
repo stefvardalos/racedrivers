@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DriversService} from './drivers.service';
 import {Router} from '@angular/router';
+import * as faicons from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-drivers',
@@ -15,6 +16,7 @@ export class DriversComponent implements OnInit {
 
   public seasons: any;
   public selectedSeason = '2019';
+  public icons;
 
   public driversColumns = [
     {value: 'position' , display: 'Index' , type: 'number'},
@@ -27,7 +29,9 @@ export class DriversComponent implements OnInit {
   constructor(
     private router: Router,
     private driversService: DriversService,
-  ) { }
+  ) {
+    this.icons = faicons;
+  }
 
   ngOnInit() {
     this.fetchDrivers();
