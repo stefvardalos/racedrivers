@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DriversService} from './drivers.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-drivers',
@@ -13,7 +14,7 @@ export class DriversComponent implements OnInit {
   public driverNameSearch: string;
 
   public seasons: any;
-  public selectedSeason;
+  public selectedSeason = '2019';
 
   public driversColumns = [
     {value: 'position' , display: 'Index' , type: 'number'},
@@ -21,10 +22,10 @@ export class DriversComponent implements OnInit {
     {value: 'constructorName' , display: 'Constructors Name' , type: 'text'},
     {value: 'wins' , display: 'Wins' , type: 'number'},
     {value: 'points' , display: 'Points' , type: 'number'}
-  ]
+  ];
 
   constructor(
-
+    private router: Router,
     private driversService: DriversService,
   ) { }
 
@@ -39,6 +40,10 @@ export class DriversComponent implements OnInit {
 
   fetchDrivers(season?) {
     this.driversService.fetchDrivers(season);
+  }
+
+  selectDriver(driverData: any) {
+    this.router.navigate(['driver', driverData.Driver.driverId ], { queryParams : {year: this.selectedSeason } });
   }
 
 }

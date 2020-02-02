@@ -41,6 +41,31 @@ export class HelperService {
   }
 
 
-
+  getCountryFlag( element ) {
+    const flag = element.toLowerCase();
+    if (flag === 'dutch' || flag === 'Netherlands') {
+      return 'nl';
+    } else if (flag === 'spanish' || flag === 'spain') {
+      return 'es';
+    } else if (flag === 'danish' || flag === 'denmark') {
+      return 'dk';
+    } else if (flag === 'polish' || flag === 'poland') {
+      return 'pl';
+    } else if (flag === 'swedish' || flag === 'sweden') {
+      return 'se';
+    } else if (flag === 'japanese' || flag === 'japan') {
+      return 'jp';
+    } else if (flag === 'polish' || flag === 'poland') {
+      return 'pl';
+    } else if (flag === 'portuguese' || flag === 'portugal') {
+      return 'pt';
+    } else if (flag === 'swiss' || flag === 'switzerland') {
+      return 'ch';
+    } else if (flag === 'english' || flag === 'uk') {
+      return 'gb';
+    } else {
+      return flag.substring(0, 2);
+    }
+  }
 
 }

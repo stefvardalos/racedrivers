@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChange} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange} from '@angular/core';
 
 @Component({
   selector: 'app-tableview',
@@ -12,14 +12,17 @@ export class TableviewComponent implements OnInit {
 
   @Input() rowData: any[];
 
-  // @Output() onOpenTree: EventEmitter<{ parentID: number }>;
+  @Output() rowClick: EventEmitter<any>;
 
   public tableSort = {
     attribute : 'index' ,
     order : true
   };
 
-  constructor() { }
+  constructor() {
+
+    this.rowClick = new EventEmitter<any>();
+  }
 
   ngOnInit() {
   }

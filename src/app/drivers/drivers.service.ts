@@ -46,30 +46,13 @@ export class DriversService {
                 driver.points = parseInt(driver.points ,  10);
                 driver.wins = parseInt(driver.wins ,  10);
                 driver.fullName = driver.Driver.givenName + ' ' + driver.Driver.familyName;
-                driver.constructorName = driver.Constructors[0].name;
-
-                driver.nationality = driver.Driver.nationality.toLowerCase();
-                if (driver.nationality === 'dutch') {
-                  driver.nationality = 'nl';
-                } else if (driver.nationality === 'spanish') {
-                  driver.nationality = 'es';
-                } else if (driver.nationality === 'danish') {
-                  driver.nationality = 'dk';
-                } else if (driver.nationality === 'polish') {
-                  driver.nationality = 'pl';
-                } else if (driver.nationality === 'swedish') {
-                  driver.nationality = 'se';
-                } else if (driver.nationality === 'japanese') {
-                  driver.nationality = 'jp';
-                } else if (driver.nationality === 'polish') {
-                  driver.nationality = 'pl';
-                } else if (driver.nationality === 'portuguese') {
-                  driver.nationality = 'pt';
-                } else if (driver.nationality === 'swiss') {
-                  driver.nationality = 'ch';
+                if (driver.hasOwnProperty('Constructors') && driver.Constructors && driver.Constructors.length > 0) {
+                  driver.constructorName = driver.Constructors[0].name;
                 } else {
-                  driver.nationality = driver.nationality.substring(0, 2);
+                  driver.constructorName = 'No team yet';
                 }
+
+                driver.country = this.helperService.getCountryFlag( driver.Driver.nationality );
                 return driver;
               });
 

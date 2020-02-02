@@ -2,6 +2,7 @@
 
 table {
   border-collapse: collapse;
+  width : 100%;
   thead {
     tr {
       background-color: $md-grey-600;
@@ -10,12 +11,17 @@ table {
   td, th {
     border: 1px solid #999;
     padding: 0.5rem;
-    text-align: left;
+    text-align: left;;
+    font-weight: bold !important;
+
+    img {
+      vertical-align:middle;
+    }
 
   }
 
   .number {
-    color: black !important;
+    color: black !important
   }
   .text {
     color : $md-grey-500 !important;

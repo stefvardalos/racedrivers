@@ -15,9 +15,9 @@
 <!--    </tfoot>-->
 
     <tbody >
-      <tr *ngFor="let row of rowData | sortTable:tableSort ">
+      <tr *ngFor="let row of rowData | sortTable:tableSort " (click)="rowClick.emit(row)">
         <td *ngFor="let field of columns" class="{{field.type}}">
-          <img *ngIf="field.value==='fullName'" src="https://www.countryflags.io/{{row.nationality}}/flat/64.png">
+          <img *ngIf="field.value==='fullName' || field.value==='raceName'" src="https://www.countryflags.io/{{row.country}}/flat/64.png">
           {{row[field.value]}}
         </td>
       </tr>
