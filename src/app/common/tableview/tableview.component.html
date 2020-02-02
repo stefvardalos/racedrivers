@@ -1,4 +1,4 @@
-<div>
+<div class="tblview">
   <span>
     Drivers Championship Standings
   </span>
@@ -8,17 +8,35 @@
         <th *ngFor="let col of columns" (click)="changeSorting(col.value)">{{col.display}}</th>
       </tr>
     </thead>
-<!--    <tfoot>-->
-<!--    <tr>-->
-<!--      <th *ngFor="let col of columns" >{{col.display}}</th>-->
-<!--    </tr>-->
-<!--    </tfoot>-->
 
     <tbody >
       <tr *ngFor="let row of rowData | sortTable:tableSort " (click)="rowClick.emit(row)">
-        <td *ngFor="let field of columns" class="{{field.type}}">
+        <td
+          *ngFor="let field of columns" class="{{field.type}}"
+          [ngClass]="{
+            'neutral' : field.value==='result' && row.value === 0 ,
+            'loss' : field.value==='result' && row.value === -2 ,
+            'midloss' : field.value==='result' && row.value === -4 ,
+            'bigloss' : field.value==='result' && row.value === -6 ,
+            'win' : field.value==='result' && row.value === 2 ,
+            'midwin' : field.value==='result' && row.value === 4 ,
+            'bigwin' : field.value==='result' && row.value === 6 
+           }"
+
+        >
           <img *ngIf="field.value==='fullName' || field.value==='raceName'" src="https://www.countryflags.io/{{row.country}}/flat/64.png">
           {{row[field.value]}}
+          <ng-template
+            [ngIf]="field.value==='raceName'"
+          >
+            <a
+              [href]="'https://www.google.com/maps/@'+ row.Circuit.Location.lat + ','+  row.Circuit.Location.long +',15z' "
+              target="_blank"
+              style="padding-left: 20px;"
+            >
+              <fa-icon [icon]="icons.faMap"></fa-icon>
+            </a>
+          </ng-template>
         </td>
       </tr>
     </tbody>

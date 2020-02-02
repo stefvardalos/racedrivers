@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import * as faicons from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tableview',
@@ -19,8 +20,10 @@ export class TableviewComponent implements OnInit {
     order : true
   };
 
-  constructor() {
+  public icons;
 
+  constructor() {
+    this.icons = faicons;
     this.rowClick = new EventEmitter<any>();
   }
 

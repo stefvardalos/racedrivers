@@ -1,5 +1,9 @@
 @import '../../../assets/mdColors.scss';
 
+.tblview {
+  background-color: white;
+}
+
 table {
   border-collapse: collapse;
   width : 100%;
@@ -25,6 +29,34 @@ table {
   }
   .text {
     color : $md-grey-500 !important;
+  }
+
+  .neutral {
+    background-color: $md-yellow-200;
+  }
+
+  .win {
+    background-color: $md-green-200;
+  }
+
+  .bigwin {
+    background-color: $md-green-300;
+  }
+
+  .midwin {
+    background-color: $md-green-400;
+  }
+
+  .loss {
+    background-color: $md-red-200;
+  }
+
+  .bigloss {
+    background-color: $md-red-300;
+  }
+
+  .midloss {
+    background-color: $md-red-400;
   }
 }
 

@@ -1,17 +1,71 @@
-<div class="container">
-  <div class="row">
+<!--<div class="container">-->
+  <div class="row" style="display:flex">
 
-    <div class="col-4">
+    <div class="col-4 driverpanel" >
+
+      <span
+        *ngIf="(driversData | async) as data; else loading"
+      >
+
+        <div style="display:flex">
+          <div style="width:50%;float:left">
+            <img src="https://i.pravatar.cc/120" />
+          </div>
+          <div style="width:50%">
+            <img src="https://www.countryflags.io/{{data.driver.country}}/flat/64.png">
+            <span style="display:block;color: white;">
+              {{data.driver.fullName}}
+            </span>
+          </div>
+        </div>
+
+
+        <div>
+
+          <table class="drivertbl">
+            <tbody>
+              <tr>
+                <td>Nationality: </td>
+                <td>{{data.driver.nationality}}</td>
+              </tr>
+              <tr>
+                <td>Team: </td>
+                <td>{{data.driver.team}}</td>
+              </tr>
+              <tr>
+                <td>Birth: </td>
+                <td>{{data.driver.dateOfBirth}}</td>
+              </tr>
+              <tr>
+                <td>Bio: </td>
+                <td><a [href]="data.driver.url" target="_blank" ><fa-icon [icon]="icons.faExternalLinkAlt"></fa-icon></a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </span>
 
     </div>
 
-    <div class="col-8">
+    <div class="col-8 standingpanel" >
 
-      <div  *ngIf="resultsData | async as results; else loading">
+      <div  *ngIf="(availableSeasons | async) as availSeasons; else loading">
+        <select
+          (ngModelChange)="fetchSeasonResults($event)"
+          [(ngModel)]="selectedSeason"
+        >
+          <option
+            *ngFor="let season of availSeasons "
+            [value]="season.season">{{season.season}}</option>
+        </select>
+      </div>
+      <div  *ngIf="(driversData | async) as data; else loading">
 
         <app-tableview
           [columns]="driverColumns"
-          [rowData]="results "
+          [rowData]="data.results "
         >
         </app-tableview>
 
@@ -23,4 +77,4 @@
     </div>
 
   </div>
-</div>
+<!--</div>-->

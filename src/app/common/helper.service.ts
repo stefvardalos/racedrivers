@@ -61,8 +61,12 @@ export class HelperService {
       return 'pt';
     } else if (flag === 'swiss' || flag === 'switzerland') {
       return 'ch';
-    } else if (flag === 'english' || flag === 'uk') {
+    } else if (flag === 'english' || flag === 'british' || flag === 'uk') {
       return 'gb';
+    } else if (flag === 'korean' || flag === 'korean' || flag === 'korea') {
+      return 'kr';
+    } else if (flag === 'turkish' || flag === 'turkey') {
+      return 'tr';
     } else {
       return flag.substring(0, 2);
     }

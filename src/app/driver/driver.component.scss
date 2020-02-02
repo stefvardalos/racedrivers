@@ -1,0 +1,20 @@
+@import '../../assets/mdColors.scss';
+
+.standingpanel {
+  background-color: $md-grey-500;
+  padding: 0.5rem 2%;
+  margin: unset;
+}
+
+.driverpanel {
+  background-color: $md-grey-900;
+  padding: 0.5rem 2%;
+  margin: unset;
+  color: white !important;
+}
+
+.drivertbl {
+  td {
+    color: $md-light-text-primary !important
+  }
+}

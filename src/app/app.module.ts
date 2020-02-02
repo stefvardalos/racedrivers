@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { DriversComponent } from './drivers/drivers.component';
 import { DriverComponent } from './driver/driver.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 import { DriverNamePipe } from './common/driver-name.pipe';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { SortTablePipe } from './common/sort-table.pipe';
 import { TableviewComponent } from './common/tableview/tableview.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TableviewComponent } from './common/tableview/tableview.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

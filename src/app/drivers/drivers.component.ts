@@ -43,7 +43,7 @@ export class DriversComponent implements OnInit {
   }
 
   selectDriver(driverData: any) {
-    this.router.navigate(['driver', driverData.Driver.driverId ], { queryParams : {year: this.selectedSeason } });
+    this.router.navigate(['driver', driverData.Driver.driverId ], { queryParams : {season: this.selectedSeason } });
   }
 
 }
