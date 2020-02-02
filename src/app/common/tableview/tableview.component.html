@@ -1,0 +1,28 @@
+<div>
+  <span>
+    Drivers Championship Standings
+  </span>
+  <table>
+    <thead class="bg-grey-200">
+      <tr>
+        <th *ngFor="let col of columns" (click)="changeSorting(col.value)">{{col.display}}</th>
+      </tr>
+    </thead>
+<!--    <tfoot>-->
+<!--    <tr>-->
+<!--      <th *ngFor="let col of columns" >{{col.display}}</th>-->
+<!--    </tr>-->
+<!--    </tfoot>-->
+
+    <tbody >
+      <tr *ngFor="let row of rowData | sortTable:tableSort ">
+        <td *ngFor="let field of columns" class="{{field.type}}">
+          <img *ngIf="field.value==='fullName'" src="https://www.countryflags.io/{{row.nationality}}/flat/64.png">
+          {{row[field.value]}}
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>

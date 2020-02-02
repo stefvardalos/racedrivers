@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { DriverNamePipe } from './common/driver-name.pipe';
 import {FormsModule} from "@angular/forms";
 import { SortTablePipe } from './common/sort-table.pipe';
+import { TableviewComponent } from './common/tableview/tableview.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SortTablePipe } from './common/sort-table.pipe';
     DriverComponent,
     PagenotfoundComponent,
     DriverNamePipe,
-    SortTablePipe
+    SortTablePipe,
+    TableviewComponent
   ],
   imports: [
     BrowserModule,

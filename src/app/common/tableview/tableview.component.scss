@@ -1,0 +1,27 @@
+@import '../../../assets/mdColors.scss';
+
+table {
+  border-collapse: collapse;
+  thead {
+    tr {
+      background-color: $md-grey-600;
+    }
+  }
+  td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+
+  }
+
+  .number {
+    color: black !important;
+  }
+  .text {
+    color : $md-grey-500 !important;
+  }
+}
+
+
+
+

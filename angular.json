@@ -28,6 +28,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/material-colors/dist/colors.scss",
               "node_modules/simplegrid/simple-grid.scss"
             ],
             "scripts": [],
@@ -86,6 +87,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.scss",
+              "node_modules/material-colors/dist/colors.scss",
               "node_modules/simplegrid/simple-grid.scss"
             ],
             "scripts": [],

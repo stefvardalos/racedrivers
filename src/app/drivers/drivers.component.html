@@ -29,24 +29,11 @@
         <div class="col-12">
           <div  *ngIf="driversData | async as drivers; else loading">
 
-            <table>
-              <tr>
-                <th (click)="changeSorting('position')">Index</th>
-                <th (click)="changeSorting('fullName')">Drivers Name</th>
-                <th (click)="changeSorting('constructorName')">Constructors Name</th>
-                <th (click)="changeSorting('wins')">Wins</th>
-                <th (click)="changeSorting('points')">Points</th>
-              </tr>
-
-              <tr *ngFor="let driver of drivers | driverName:driverNameSearch | sortTable:tableSort ">
-                <td>{{driver.positionText}}</td>
-                <td>{{driver.fullName}}</td>
-                <td>{{driver.constructorName}}</td>
-                <td>{{driver.wins}}</td>
-                <td>{{driver.points}}</td>
-              </tr>
-
-            </table>
+            <app-tableview
+              [columns]="driversColumns"
+              [rowData]="drivers | driverName:driverNameSearch"
+            >
+            </app-tableview>
 
 
           </div>

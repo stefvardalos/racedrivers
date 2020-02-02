@@ -47,6 +47,29 @@ export class DriversService {
                 driver.wins = parseInt(driver.wins ,  10);
                 driver.fullName = driver.Driver.givenName + ' ' + driver.Driver.familyName;
                 driver.constructorName = driver.Constructors[0].name;
+
+                driver.nationality = driver.Driver.nationality.toLowerCase();
+                if (driver.nationality === 'dutch') {
+                  driver.nationality = 'nl';
+                } else if (driver.nationality === 'spanish') {
+                  driver.nationality = 'es';
+                } else if (driver.nationality === 'danish') {
+                  driver.nationality = 'dk';
+                } else if (driver.nationality === 'polish') {
+                  driver.nationality = 'pl';
+                } else if (driver.nationality === 'swedish') {
+                  driver.nationality = 'se';
+                } else if (driver.nationality === 'japanese') {
+                  driver.nationality = 'jp';
+                } else if (driver.nationality === 'polish') {
+                  driver.nationality = 'pl';
+                } else if (driver.nationality === 'portuguese') {
+                  driver.nationality = 'pt';
+                } else if (driver.nationality === 'swiss') {
+                  driver.nationality = 'ch';
+                } else {
+                  driver.nationality = driver.nationality.substring(0, 2);
+                }
                 return driver;
               });
 

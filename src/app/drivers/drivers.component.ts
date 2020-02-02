@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {DriversService} from './drivers.service';
-import {skip, map} from "rxjs/operators";
 
 @Component({
   selector: 'app-drivers',
@@ -16,10 +15,13 @@ export class DriversComponent implements OnInit {
   public seasons: any;
   public selectedSeason;
 
-  public tableSort = {
-    attribute : 'index' ,
-    order : true
-  };
+  public driversColumns = [
+    {value: 'position' , display: 'Index' , type: 'number'},
+    {value: 'fullName' , display: 'Drivers Name' , type: 'text'},
+    {value: 'constructorName' , display: 'Constructors Name' , type: 'text'},
+    {value: 'wins' , display: 'Wins' , type: 'number'},
+    {value: 'points' , display: 'Points' , type: 'number'}
+  ]
 
   constructor(
 
@@ -33,16 +35,6 @@ export class DriversComponent implements OnInit {
     this.driversData = this.driversService.drivers;
     this.seasons = this.driversService.seasons;
 
-  }
-
-  changeSorting(attribute) {
-    if (this.tableSort.attribute === attribute) {
-      this.tableSort.order = !this.tableSort.order;
-    } else {
-      this.tableSort.attribute = attribute;
-      this.tableSort.order = true;
-    }
-    this.tableSort = Object.assign({} , this.tableSort);
   }
 
   fetchDrivers(season?) {
